@@ -8,6 +8,7 @@ A curated collection of study resources and links.
 | Inference Engineering | Inference Engineering (Philip Kiely) — study tracker with progress checkboxes | https://inferenceengineering.tech | [ ] |
 | DSA | NeetCode Roadmap — structured DSA practice | https://neetcode.io/roadmap | [ ] |
 | DB | DB backup command | [See commands](#db-backup-command) | [x] |
+| DB | WAL-G — continuous (WAL) backups for PostgreSQL | https://github.com/wal-g/wal-g | [ ] |
 
 ## DB backup command
 
@@ -34,3 +35,16 @@ A curated collection of study resources and links.
 | `cat ... \|` | Pipe the file into `psql` | Feeds the dump directly to the client instead of typing it manually. |
 | `psql` | PostgreSQL interactive client | Executes the SQL statements from the dump. |
 | `-d postgres` | Connect to the `postgres` maintenance database | Required because the dump contains `CREATE DATABASE citymanaged`; you cannot create a database while connected to it, so connect to a neutral database first. |
+
+### Alternative: WAL-G
+
+[WAL-G](https://github.com/wal-g/wal-g) is a continuous backup tool that archives PostgreSQL's write-ahead log (WAL) plus a base backup to object storage (S3, GCS, Azure Blob, etc.).
+
+| Aspect | `pg_dump` (above) | WAL-G |
+| ------ | ----------------- | ----- |
+| Backup type | Logical SQL dump, taken on demand | Physical base backup + continuous WAL archiving |
+| Recovery point | Only the moment the dump ran | Any point in time (PITR), down to the second |
+| Restore speed | Slower (replays every SQL statement) | Faster (restores files directly) |
+| Storage | A single `.sql` file | Object storage / remote repo |
+| Version safety | Portable across major PG versions | Requires the same major version |
+| Best for | Small DBs, migrations, dev snapshots | Large/production DBs needing near-zero data loss |
