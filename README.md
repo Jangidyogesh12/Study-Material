@@ -7,9 +7,10 @@ A curated collection of study resources and links.
 | System Design | System Design Crash Course in 4 Hours | https://www.youtube.com/watch?v=zZGcasTtLfA | [x] |
 | System Design | ByteByteGo Guides — system design articles & deep dives | https://bytebytego.com/guides/ | [ ] |
 | Inference Engineering | Inference Engineering (Philip Kiely) — study tracker with progress checkboxes | https://inferenceengineering.tech | [ ] |
-| DSA | NeetCode Roadmap — structured DSA practice | https://neetcode.io/roadmap | [ ] |
+| DSA | NeetCode Roadmap — structured DSA practice | https://neetcode.io/roadmap | [x] |
 | DB | DB backup command | [See commands](#db-backup-command) | [x] |
 | DB | WAL-G — continuous (WAL) backups for PostgreSQL | https://github.com/wal-g/wal-g | [x] |
+| Computer Graphics | Computer Graphics from Scratch (Gabriel Gambetta) — raytracing & rasterization from scratch | https://gabrielgambetta.com/computer-graphics-from-scratch/ | [ ] |
 
 ## DB backup command
 
